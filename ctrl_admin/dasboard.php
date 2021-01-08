@@ -156,14 +156,14 @@ function confirmar2(){
           <?php if($mensa=="ok-pass"){ ?>
             <div class="col-12">
               <span class="d-block d-md-flex align-items-center">
-                <p class="text-success"><strong>Mensaje !</strong> tu clave se cambio  satisfactoriamente ! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <p class="text-success"><strong>Mensaje !</strong> tu clave se cambio satisfactoriamente ! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
               </span>
             </div>
           <?php } ?>
           <?php if($mensa=="faild-pass"){ ?>
             <div class="col-12">
               <span class="d-block d-md-flex align-items-center">
-                <p class="text-danger"><strong>Mensaje !</strong> tu clave no se cambio  verificalo ! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                <p class="text-danger"><strong>Mensaje !</strong> tu clave no se cambio verificalo ! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
               </span>
             </div>
           <?php } ?>

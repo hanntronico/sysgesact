@@ -74,7 +74,7 @@ if (isset($_SESSION['usuario'])){
           	<div class="col-lg-4"></div>
           </div>
           </form>
-          <br>
+          <br><br><br>
     </div>
 </section>
 

@@ -68,7 +68,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#">
              <strong>
-              <i class="menu-icon mdi mdi-account-multiple"></i>
+              <i class="menu-icon mdi mdi-account-check"></i>
               <span class="menu-title">Asignar Actividades</span>
               </strong>
             </a>

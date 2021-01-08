@@ -141,7 +141,9 @@ function confirmar2(){
                           $ofic_gral = $rwpv["oficina_gral"];
                           $oficina = $rwpv["oficina"];
                           $fini_ctrl = $rwpv["fecha_ini_ctrl"];
+                          $newfec_ini = date("d/m/Y", strtotime($fini_ctrl));
                           $ffin_ctrl = $rwpv["fecha_fin_ctrl"];
+                          $newfec_fin = date("d/m/Y", strtotime($ffin_ctrl));
                         }
                       }
 
@@ -169,7 +171,7 @@ function confirmar2(){
                         <div class="col-md-3">
                           <div class="form-group">
                             <label for="nomccarr">Fecha Inicio </label>
-                            <input type="text" name="nomcortocarr" class="form-control" placeholder="Ingrese fecha Inicio" value="<?php echo $fini_ctrl;?>" required readonly>
+                            <input type="text" name="nomcortocarr" class="form-control" placeholder="Ingrese fecha Inicio" value="<?php echo $newfec_ini;?>" required readonly>
                           </div>
                         </div>
 
@@ -177,7 +179,7 @@ function confirmar2(){
                         <div class="col-md-3">
                           <div class="form-group">
                             <label for="nomccarr">Fecha Fin </label>
-                            <input type="text" name="nomcortocarr" class="form-control" placeholder="Ingrese Fecha Fin" value="<?php echo $ffin_ctrl;?>" required readonly>
+                            <input type="text" name="nomcortocarr" class="form-control" placeholder="Ingrese Fecha Fin" value="<?php echo $newfec_fin;?>" required readonly>
                           </div>
                         </div>
 			                </div>
@@ -221,7 +223,12 @@ function confirmar2(){
 
 
 
-                        <center><button type="submit" class="btn btn-success mr-2">Guardar Datos</button></center>
+                        <center>
+                          <button type="submit" class="btn btn-success mr-2"><i class='mdi mdi-content-save'></i>Guardar Datos</button>
+                          <button type="button" class="btn btn-success mr-2" onclick="exportar_excel(<?php echo $codigo; ?>)"><i class='mdi mdi-file-excel'></i>Exportar EXCEL</button>
+                          <!-- <a href="excel_files/libro.xlsx" class="btn btn-success mr-2"><i class='mdi mdi-file-excel'></i>Descargar</a> -->
+                        </center>
+
                       </form>
 
 
@@ -262,6 +269,7 @@ inner JOIN control_activ as c
               $activ_descrip = $rwpv["activ_descrip"];
               $activ_evidencia = $rwpv["actv_evidencia"];
               $activ_fecha_progra = $rwpv["activ_fecha_programada"];
+              $newFecProg = date("d/m/Y", strtotime($activ_fecha_progra));
 
 ?>
 
@@ -269,7 +277,7 @@ inner JOIN control_activ as c
               <td class='font-weight-medium'><?php echo $cact; ?></td>
               <td><?php echo $activ_descrip; ?></td>
               <td><?php echo $activ_evidencia; ?></td>
-              <td><?php echo $activ_fecha_progra; ?></td>
+              <td><?php echo $newFecProg; ?></td>
               <td>
                 <!-- <a href='delete_carrera.php?dat=<?php echo $id;?>' onClick='return confirmar2()'> -->
                 <a href='delete_actividad.php?dat=<?php echo $id;?>' onClick='return confirmar2()'>
@@ -356,6 +364,15 @@ inner JOIN control_activ as c
   });
   $('.dataTables_length').addClass('bs-select');
 });
+
+
+function exportar_excel(id) {
+  // location.href='exportar_excel2.php?dat='+id;
+  location.href='exportar_excel3.php?dat='+id;
+}
+
+
+
 	</script>
 	
 	<?php mysqli_close($linkdocu); ?>

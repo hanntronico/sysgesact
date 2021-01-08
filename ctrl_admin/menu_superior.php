@@ -194,22 +194,22 @@ if($nivelaxe==1 || $nivelaxe==2){ }else{
         <div class="modal-body">
           <p>Ingresa tu nueva Clave.</p>
           <form class="forms-sample" method="post" action="update_pass.php">
-                       <div class="form-group">
-                          <label for="exampleInputPassword1">Nombre</label>
-                          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Tu Nombre" value="<?=$datnomuser;?>" readonly>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Usuario</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tu Usuario" value="<?=$datuser;?>" readonly>
-                          <input type="hidden" name="keyllave" class="form-control" id="exampleInputEmail1" placeholder="idusu" value="<?=$_SESSION["idu"];?>" readonly>
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputPassword1">Clave Nueva</label>
-                          <input type="password" name="llaveuno" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
-                        </div>
-                        <button type="submit" class="btn btn-success mr-2">Cambiar Clave</button>
+            <div class="form-group">
+              <label for="exampleInputNombre1">Nombre</label>
+              <input type="text" class="form-control" id="exampleInputNombre1" placeholder="Tu Nombre" value="<?=$datnomuser;?>" readonly>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Usuario</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Tu Usuario" value="<?=$datuser;?>" readonly>
+              <input type="hidden" name="keyllave" class="form-control" id="exampleInputkey1" placeholder="idusu" value="<?=$_SESSION["idu"];?>" readonly>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Clave Nueva</label>
+              <input type="password" name="llaveuno" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-success mr-2">Cambiar Clave</button>
                     
-                      </form>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>

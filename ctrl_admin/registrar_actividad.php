@@ -10,7 +10,7 @@ $fechaprogra = trim($_POST["fechaprogra"]);
 if($descactividad!="" and $prodeviden!="" and $fechaprogra!=""){
 
 	$sqlins = "INSERT INTO actividades (activ_descrip, actv_evidencia, activ_fecha_programada, activ_estado) 
-	VALUES ('".$descactividad."','".$prodeviden."','".$fechaprogra."',1)";
+	VALUES ('".$descactividad."','".$prodeviden."','".$fechaprogra."',0)";
 
   	$linkdocu->query($sqlins);
 	

@@ -179,7 +179,7 @@ function confirmar2(){
               <td><?php echo $ffin_ctrl; ?></td>
               <td>
                 <a href='controles_edit.php?dat=<?php echo $id;?>' class='btn btn-icons btn-rounded btn-success' title='Editar'><i class='mdi mdi-pencil'></i></a>
-                <a href='asignar_actividades.php?dat=<?php echo $id;?>' class='btn btn-icons btn-rounded btn-success' title='Editar'><i class='mdi mdi-pencil'></i></a>
+                <a href='asignar_actividades.php?dat=<?php echo $id;?>' class='btn btn-icons btn-rounded btn-success' title='Editar'><i class='mdi mdi-note-text'></i></a>
                 <a href='delete_carrera.php?dat=<?php echo $id;?>' onClick='return confirmar2()'>
                   <button class='btn btn-icons btn-rounded btn-danger' title='Eliminar'><i class='mdi mdi-delete'></i></button>
                 </a>
