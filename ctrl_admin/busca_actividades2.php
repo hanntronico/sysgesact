@@ -1,5 +1,28 @@
-<div id="content">
-	<?php //echo "listado de actividades datos de post: ".$_POST['trabajador']; ?>
+<div id="content" class="py-3">
+	<?php //echo "listado de actividades datos de post: ".$_POST['trabajador']."--".$_POST['feci']."--".$_POST['fecf']; 
+    include("conexion/config.php");
+
+    $sqlvista="SELECT * FROM personas where idpersona = ".$_POST['trabajador']." ORDER BY 1 DESC";
+    $rspv=$linkdocu->query($sqlvista);
+    
+
+// idpersona
+// nombres
+// apaterno
+// amaterno
+// tipo_documento
+// num_documento
+// direccion
+// telefono
+// email
+        if($rspv->num_rows>0){
+          while($rwpv=$rspv->fetch_array()){
+            $datusuario = " DNI: ".$rwpv["num_documento"].", ".$rwpv["nombres"]." ".$rwpv["apaterno"]." ".$rwpv["amaterno"];
+          }
+        }
+
+        echo $datusuario;
+  ?>
 </div>
 
                  <div class="table-responsive">
@@ -18,8 +41,7 @@
                       <tbody>
         <?php
 // idcontrol_activ, oficina_gral, direccion_general, oficina, direccion_oficina, fecha_ini_ctrl, fecha_fin_ctrl, idpersona
-        include("conexion/config.php");
-		$sqlvista="SELECT * FROM control_activ where idpersona = ".$_POST['trabajador']." ORDER BY 1 DESC";
+	  $sqlvista="SELECT * FROM control_activ where fecha_ini_ctrl = '".$_POST['feci']."' AND fecha_fin_ctrl ='".$_POST['fecf']."' AND idpersona = ".$_POST['trabajador']." ORDER BY 1 DESC";
 		$rspv=$linkdocu->query($sqlvista);
 		
         if($rspv->num_rows>0){
@@ -45,7 +67,7 @@
               <td><?php echo $newfec_fin1; ?></td>
               <td class="text-center">
 <!--                 <a href='controles_edit.php?dat=<?php echo $id;?>' class='btn btn-icons btn-rounded btn-success' title='Editar'><i class='mdi mdi-pencil'></i></a> -->
-                <a href='controlar_actividades.php?dat=<?php echo $id;?>' class='btn btn-icons btn-rounded btn-success' title='Editar'><i class='mdi mdi-settings'></i></a>
+                <a href='reporte_actividades.php?dat=<?php echo $id;?>' class='btn btn-icons btn-rounded btn-success' title='Editar'><i class='mdi mdi-settings'></i></a>
 <!--                 <a href='delete_carrera.php?dat=<?php echo $id;?>' onClick='return confirmar2()'>
                   <button class='btn btn-icons btn-rounded btn-danger' title='Eliminar'><i class='mdi mdi-delete'></i></button>
                 </a> -->

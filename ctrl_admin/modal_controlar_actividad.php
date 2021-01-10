@@ -43,8 +43,6 @@ $newfec_fin1 = date("d/m/Y", strtotime($fcfin));
 
 
   }
-
-
 </script>
 
       <div class="modal-content">

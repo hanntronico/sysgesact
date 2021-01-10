@@ -1,7 +1,7 @@
 <?php
 include ("conexion/config.php");
 $idse=$_GET["dat"];
-$rsh=("UPDATE usuarios SET estado=0 WHERE idusuario='$idse'");
+$rsh=("UPDATE trabajadores SET estado=0 WHERE idpersona='$idse'");
 $linkdocu->query($rsh);
 mysqli_close($linkdocu);
    $mensaje="delete";

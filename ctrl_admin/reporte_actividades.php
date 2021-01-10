@@ -119,9 +119,10 @@ function confirmar2(){
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">
-                  <a href="controles.php" class="btn btn-outline-primary"><i class="mdi mdi-chevron-double-left"></i> Regresar</a>
+                  <a href="reportes.php" class="btn btn-outline-primary"><i class="mdi mdi-chevron-double-left"></i> Regresar</a>
+                  <button type="button" class="btn btn-success mr-2" onclick="exportar_excel(<?php echo $codigo; ?>)"><i class='mdi mdi-file-excel'></i>Exportar EXCEL</button>
                   </h4>
-                  <h4 class="card-title" align="center">Registrar Actividades - MATRIZ REGISTRADA
+                  <h4 class="card-title" align="center">Reporte de Actividades - MATRIZ REGISTRADA
                     <?php echo "CÓDIGO : ".$codigo;?>
                   </h4>
                
@@ -144,26 +145,27 @@ function confirmar2(){
                           $newfec_ini = date("d/m/Y", strtotime($fini_ctrl));
                           $ffin_ctrl = $rwpv["fecha_fin_ctrl"];
                           $newfec_fin = date("d/m/Y", strtotime($ffin_ctrl));
+                        
                         }
                       }
 
 ?>
 
          <!-- <p style="color: #E10D11;font-size: 12px;"><b>Campos requeridos (*)</b></p> -->
-          <form class="forms-sample" method="post" action="registrar_actividad.php" onsubmit="return verifica_fecha()" enctype="multipart/form-data">
+          <form class="forms-sample" method="post" action="registrar_actividad.php" enctype="multipart/form-data">
                   <input type="hidden" name="idid" value="<?php echo $id;?>">
                       <div class="row">
                         <div class="col-md-3">
                           <div class="form-group">
                             <label for="desccarrera">Ofina General </label>
-                            <input type="text" name="ofigeneral" class="form-control" placeholder="Ingrese oficina general" value="<?php echo $ofic_gral;?>" required readonly>
+                            <input type="text" name="descCarrera" class="form-control" placeholder="Ingrese oficina general" value="<?php echo $ofic_gral;?>" required readonly>
                           </div>
                         </div>
 
                         <div class="col-md-3">
                           <div class="form-group">
                             <label for="desccarrera">Oficina Línea</label>
-                            <input type="text" name="ofilinea" class="form-control" placeholder="Ingrese oficina línea" value="<?php echo $oficina;?>" required readonly>
+                            <input type="text" name="descCarrera" class="form-control" placeholder="Ingrese oficina línea" value="<?php echo $oficina;?>" required readonly>
                           </div>
                         </div>
 
@@ -171,7 +173,7 @@ function confirmar2(){
                         <div class="col-md-3">
                           <div class="form-group">
                             <label for="nomccarr">Fecha Inicio </label>
-                            <input type="text" name="fecha_inicio" id="fecha_inicio" class="form-control" placeholder="Ingrese fecha Inicio" value="<?php echo $newfec_ini;?>" required readonly>
+                            <input type="text" name="nomcortocarr" class="form-control" placeholder="Ingrese fecha Inicio" value="<?php echo $newfec_ini;?>" required readonly>
                           </div>
                         </div>
 
@@ -179,60 +181,14 @@ function confirmar2(){
                         <div class="col-md-3">
                           <div class="form-group">
                             <label for="nomccarr">Fecha Fin </label>
-                            <input type="text" name="fecha_fin" id="fecha_fin" class="form-control" placeholder="Ingrese Fecha Fin" value="<?php echo $newfec_fin;?>" required readonly>
+                            <input type="text" name="nomcortocarr" class="form-control" placeholder="Ingrese Fecha Fin" value="<?php echo $newfec_fin;?>" required readonly>
                           </div>
                         </div>
 			                </div>
                       <hr>
-<!-- 
-  idactividad 
-  activ_descrip 
-  actv_evidencia  
-  activ_fecha_programada  
-  activ_fecha_entrega 
-  activ_comentarios 
-  activ_estado -->
-
-                      <div class="row">
-
-                        <div class="col-md-8">
-                          <div class="form-group">
-                            <label for="desccarrera">Descripción de actividad <b style="color: #DD070B;font-size: 12px;">(*)</b></label>
-                            <input type="text" name="descactividad" class="form-control" placeholder="Ingrese descripción de actividad" required>
-                          </div>
-                        </div>
-
-                      </div>
-
-                      <div class="row">                                              
-                        <div class="col-md-8">
-                          <div class="form-group">
-                            <label for="desccarrera">Producto(Evidencia) <b style="color: #DD070B;font-size: 12px;">(*)</b></label>
-                            <input type="text" name="prodeviden" class="form-control" placeholder="Ingrese producto evidencia" required>
-                          </div>
-                        </div>
-
-
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label for="nomccarr">Fecha Programada. de presentación <b style="color: #DD070B;font-size: 12px;">(*)</b></label>
-                            <input type="date" name="fechaprogra" id="fechaprogra" class="form-control" placeholder="Ingrese Fecha programada" required>
-                          </div>
-                        </div>
-                      </div>    
-
-
-
-                        <center>
-                          <button type="submit" class="btn btn-success mr-2"><i class='mdi mdi-content-save'></i>Guardar Datos</button>
-                          <button type="button" class="btn btn-success mr-2" onclick="exportar_excel(<?php echo $codigo; ?>)"><i class='mdi mdi-file-excel'></i>Exportar EXCEL</button>
-                          <!-- <a href="excel_files/libro.xlsx" class="btn btn-success mr-2"><i class='mdi mdi-file-excel'></i>Descargar</a> -->
-                        </center>
 
                       </form>
 
-
-<hr>
 
                   <div class="table-responsive">
                    
@@ -243,7 +199,7 @@ function confirmar2(){
                           <th class="th-sm">Descripción Activ. <i class="fa fa-sort float-right" aria-hidden="true" width="200px"></i></th>
                           <th class="th-sm">Producto (evidencia) <i class="fa fa-sort float-right" aria-hidden="true" width="100px"></i></th>
                           <th class="th-sm">Fecha Prog. <i class="fa fa-sort float-right" aria-hidden="true"></i></th>
-                          <th class="th-sm">Opciones <i class="fa fa-sort float-right" aria-hidden="true"></i></th>
+                          <!-- <th class="th-sm text-center">Opciones <i class="fa fa-sort float-right" aria-hidden="true"></i></th> -->
                         </tr>
                       </thead>
                       <tbody>
@@ -251,16 +207,12 @@ function confirmar2(){
 <?php 
 
 
- // $sqlvista="SELECT * FROM actividades where = ".$idtrabajador." ORDER BY 1 DESC";
-
-$idcontrol = $id;
-
 $sqlvista="SELECT *
-          from actividades as a
-          inner join detalle_actividades as d 
-            on a.idactividad = d.idactividad  
-          inner JOIN control_activ as c 
-            on d.idcontrol_activ = c.idcontrol_activ where c.idcontrol_activ=".$idcontrol; 
+from actividades as a
+inner join detalle_actividades as d 
+  on a.idactividad = d.idactividad  
+inner JOIN control_activ as c 
+  on d.idcontrol_activ = c.idcontrol_activ where c.idcontrol_activ=".$id; 
 
         $rspv=$linkdocu->query($sqlvista);
         if($rspv->num_rows>0){
@@ -270,21 +222,31 @@ $sqlvista="SELECT *
               $activ_descrip = $rwpv["activ_descrip"];
               $activ_evidencia = $rwpv["actv_evidencia"];
               $activ_fecha_progra = $rwpv["activ_fecha_programada"];
-              $newFecProg = date("d/m/Y", strtotime($activ_fecha_progra));
+             
+              // if ($rwpv["activ_estado"] == 1 and $rwpv["activ_fecha_entrega"] != NULL) {
+              if ($rwpv["activ_estado"] == 1) {
+                $estilo_row = "style='background-color: #00FF0055'";
+              }else{
+                $estilo_row = "style='background-color: #FF000033'";
+              }
 
+            $newfecha = date("d/m/Y", strtotime($activ_fecha_progra));
 ?>
-
-            <tr>
+            <tr <?php echo $estilo_row; ?> >
               <td class='font-weight-medium'><?php echo $cact; ?></td>
               <td><?php echo $activ_descrip; ?></td>
               <td><?php echo $activ_evidencia; ?></td>
-              <td><?php echo $newFecProg; ?></td>
-              <td>
-                <!-- <a href='delete_carrera.php?dat=<?php echo $id;?>' onClick='return confirmar2()'> -->
-                <a href='delete_actividad.php?dat=<?php echo $id;?>&idcontrol=<?php echo $idcontrol; ?>' onClick='return confirmar2()'>
+              <td class="text-center"><?php echo $newfecha; ?></td>
+              <!-- <td class="text-center"> -->
+                <!-- <a href='delete_carrera.php?dat=<?php //echo $id;?>' onClick='return confirmar2()'> -->
+<!--                 <a href='delete_actividad.php?dat=<?php //echo $id;?>' onClick='return confirmar2()'>
                   <button class='btn btn-icons btn-rounded btn-danger' title='Eliminar'><i class='mdi mdi-delete'></i></button>
-                </a>
-              </td>
+                </a> -->
+              <!-- <a class="dropdown-item" data-toggle="modal" data-target="#myModalControlar"> -->
+               <!-- <button class='btn btn-icons btn-rounded btn-primary' title='Controlar' data-toggle="modal" data-target="#myModalControlar" onclick="mostrar(<?php //echo $id; ?>)"><i class='mdi mdi-account-key'></i></button> -->
+              <!-- </a> -->
+
+              <!-- </td> -->
             </tr>
 
 
@@ -319,6 +281,15 @@ $sqlvista="SELECT *
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
+
+
+<div class="modal fade" id="myModalControlar" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document" id="control_act">
+
+  </div>
+</div>
+
+
 
   <!-- plugins:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
@@ -364,12 +335,17 @@ $sqlvista="SELECT *
 	  
   });
   $('.dataTables_length').addClass('bs-select');
+
 });
 
 
-function convertDateFormat(string) {
-  var info = string.split('/');
-  return info[2] + '-' + info[1] + '-' + info[0];
+function mostrar(id) {
+  $(document).ready(function () {
+    $("#control_act").load("modal_controlar_actividad.php?cod=" + id, " ", function () {
+      $("#control_act").show("slow");
+    });
+    console.log(id);
+  });
 }
 
 function exportar_excel(id) {
@@ -377,54 +353,6 @@ function exportar_excel(id) {
   location.href='exportar_excel3.php?dat='+id;
 }
 
-function verifica_fecha() {
-
-  var fecha_inicio = document.getElementById('fecha_inicio').value;
-  var fecha_fin = document.getElementById('fecha_fin').value;
-  var fecha_program = document.getElementById('fechaprogra').value
-
-  var fechai = convertDateFormat(fecha_inicio);
-  var fechaf = convertDateFormat(fecha_fin);
-
-  if (fecha_program >= fechai && fecha_program <= fechaf) {
-    console.log("fecha en periodo");
-    return true;
-  }else {
-    alert("Por favor ingresar fecha dentro del periodo");
-    return false;
-  }
-
-  //   var fecini = document.getElementById("fecini").value;
-  //   var fecfin = document.getElementById("fecfin").value;
-  //   var fec_entreg = document.getElementById("fec_entrega").value;
-    
-  //   if (fec_entreg >= fecini && fec_entreg <= fecfin) {
-  //     console.log("EN PERIODO");
-  //     return true;
-  //   }else{
-  //     console.log("NO PER");
-  //     alert("Por favor ingresar fecha dentro del periodo");
-  //     return false;
-
-
-
-
-    // console.log(fechai+"--"+fechaf+"-- Fecha: "+fechap);
-
-
-  // if (fechaprogra >= convertDateFormat(fecha_inicio) && fechaprogra <= convertDateFormat(fecha_fin)) {
-  //   // return true;
-  //   console.log(convertDateFormat(fecha_inicio)+"--"+convertDateFormat(fecha_fin)+"-- Fecha: "+fecha_program);
-  // }else{
-  //   console.log(convertDateFormat(fecha_inicio)+"--"+convertDateFormat(fecha_fin)+"-- Fecha: "+fecha_program);
-  //   // alert("Por favor ingrese fecha dentro del intervalo");
-  //   // return false;
-  // }
-
-
-
-  return false;
-}
 
 	</script>
 	

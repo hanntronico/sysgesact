@@ -83,52 +83,6 @@
             </a>
           </li>
 
-  
-
-<!--           <li class="nav-item">
-            <a class="nav-link" href="confirm_egre.php">
-             <strong>
-              <i class="menu-icon mdi mdi-account-check"></i>
-              <span class="menu-title">Confirmar egresados</span>
-              </strong>
-            </a>
-          </li>          
-
-          <li class="nav-item">
-            <a class="nav-link" href="carreras.php">
-             <strong>
-              <i class="menu-icon mdi mdi-book-open-page-variant"></i>
-              <span class="menu-title">Carreras</span>
-              </strong>
-            </a>
-          </li> -->
-
-<!--           <li class="nav-item">
-            <a class="nav-link" href="especialidades.php">
-             <strong>
-              <i class="menu-icon mdi mdi-book-plus"></i>
-              <span class="menu-title">Especialidades</span>
-              </strong>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="tipos_grado.php">
-             <strong>
-              <i class="menu-icon mdi mdi-book"></i>
-              <span class="menu-title">Tipos Grado</span>
-              </strong>
-            </a>
-          </li>          
-
-          <li class="nav-item">
-            <a class="nav-link" href="instituciones.php">
-             <strong>
-              <i class="menu-icon mdi mdi-book"></i>
-              <span class="menu-title">Instituciones</span>
-              </strong>
-            </a>
-          </li>   
 
           <li class="nav-item">
             <a class="nav-link" href="user-admin.php">
@@ -137,7 +91,7 @@
               <span class="menu-title">Crear Usuarios</span>
               </strong>
             </a>
-          </li> -->
+          </li>
           
 <?php endif ?>
 
