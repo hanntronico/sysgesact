@@ -7,4 +7,4 @@ USE bdaccesscon;
 -- SELECT * FROM grados_titulos WHERE idinstitucion=1 AND idtipo=1 AND mencion='ldfjlasjfkl' AND year_inicio='2006' AND year_fin='2008'
 -- select * from usuarios;
 select * from usuario;
-
+select * from actividades;
